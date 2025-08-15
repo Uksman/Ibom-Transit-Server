@@ -32,7 +32,7 @@ connectDB();
 // Initialize Socket.io
 const io = new Server(httpServer, {
   cors: {
-    origin: [config.clientUrl, config.adminUrl],
+    origin: config.corsOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
   }
@@ -43,7 +43,7 @@ const io = new Server(httpServer, {
 // 1. Basic security middleware (should come first)
 app.use(helmet()); // Protect against web vulnerabilities
 app.use(cors({
-  origin: [config.clientUrl, config.adminUrl],
+  origin: config.corsOrigins,
   credentials: true,
   exposedHeaders: ['API-Version', 'API-Deprecation-Info', 'New-Token'] // Allow front-end to see custom headers
 }));

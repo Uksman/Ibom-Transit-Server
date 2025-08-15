@@ -146,7 +146,7 @@ NotificationSchema.index({ recipient: 1, createdAt: -1 });
 NotificationSchema.index({ type: 1, createdAt: -1 });
 NotificationSchema.index({ read: 1, recipient: 1 });
 NotificationSchema.index({ scheduledFor: 1 });
-NotificationSchema.index({ expiresAt: 1 });
+// Note: expiresAt index is already defined in the schema field with TTL
 
 // Method to mark notification as read
 NotificationSchema.methods.markAsRead = async function() {

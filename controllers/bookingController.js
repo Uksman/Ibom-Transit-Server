@@ -7,8 +7,6 @@ const NotificationService = require('../services/notificationService');
 const { generateTicket, generateTicketPDF } = require('../utils/ticketGenerator');
 const TicketNotificationService = require('../services/ticketNotificationService');
 const Paystack = require("paystack-api")(process.env.PAYSTACK_SECRET_KEY);
-
-console.log(Paystack)
 // Helper functions
 const generatePDF = async (booking) => {
   // In a real application, this would generate a PDF
